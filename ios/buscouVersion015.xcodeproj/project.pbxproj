@@ -69,6 +69,8 @@
 		8C24F63A029649ADA71F8835 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 563411F11DDD4F99810299B5 /* AppCenter-Config.plist */; };
 		7C0DAD10DAB94A17A166DC4C /* libAppCenterReactNativeCrashes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 437E5264F67E4D00BF250D79 /* libAppCenterReactNativeCrashes.a */; };
 		7870E9C4EC124590A14918AE /* libAppCenterReactNativeAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A08983330EF4CF48378B378 /* libAppCenterReactNativeAnalytics.a */; };
+		DE4BA5F57E814E2D9D1B827B /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6AA013406B497BABECDA8E /* libCodePush.a */; };
+		BCBFA9BBDFF044B7B0EAD3ED /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D35723BCDEE04BEF8C597F69 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -420,6 +422,9 @@
 		437E5264F67E4D00BF250D79 /* libAppCenterReactNativeCrashes.a */ = {isa = PBXFileReference; name = "libAppCenterReactNativeCrashes.a"; path = "libAppCenterReactNativeCrashes.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		834A4D6ADFFA438488C64580 /* AppCenterReactNativeAnalytics.xcodeproj */ = {isa = PBXFileReference; name = "AppCenterReactNativeAnalytics.xcodeproj"; path = "../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		0A08983330EF4CF48378B378 /* libAppCenterReactNativeAnalytics.a */ = {isa = PBXFileReference; name = "libAppCenterReactNativeAnalytics.a"; path = "libAppCenterReactNativeAnalytics.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		3ABAC1D20D6042EB8937D28D /* CodePush.xcodeproj */ = {isa = PBXFileReference; name = "CodePush.xcodeproj"; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		2E6AA013406B497BABECDA8E /* libCodePush.a */ = {isa = PBXFileReference; name = "libCodePush.a"; path = "libCodePush.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		D35723BCDEE04BEF8C597F69 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +467,8 @@
 				80A2BEADB22A4D0494D25434 /* libAppCenterReactNative.a in Frameworks */,
 				7C0DAD10DAB94A17A166DC4C /* libAppCenterReactNativeCrashes.a in Frameworks */,
 				7870E9C4EC124590A14918AE /* libAppCenterReactNativeAnalytics.a in Frameworks */,
+				DE4BA5F57E814E2D9D1B827B /* libCodePush.a in Frameworks */,
+				BCBFA9BBDFF044B7B0EAD3ED /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				D35723BCDEE04BEF8C597F69 /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -662,6 +670,7 @@
 				5DD0DE9AA1664949B77C7A22 /* AppCenterReactNative.xcodeproj */,
 				7F065522B56C4149AFFBBBBD /* AppCenterReactNativeCrashes.xcodeproj */,
 				834A4D6ADFFA438488C64580 /* AppCenterReactNativeAnalytics.xcodeproj */,
+				3ABAC1D20D6042EB8937D28D /* CodePush.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1340,6 +1349,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1357,6 +1367,7 @@
 					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
 					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
 					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 				);
 			};
 			name = Debug;
@@ -1384,6 +1395,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1401,6 +1413,7 @@
 					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
 					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
 					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 				);
 			};
 			name = Release;
@@ -1436,6 +1449,7 @@
 					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
 					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
 					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 				);
 			};
 			name = Debug;
@@ -1470,6 +1484,7 @@
 					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
 					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
 					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 				);
 			};
 			name = Release;
@@ -1506,6 +1521,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1523,6 +1539,7 @@
 					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
 					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
 					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 				);
 			};
 			name = Debug;
@@ -1559,6 +1576,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1576,6 +1594,7 @@
 					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
 					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
 					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 				);
 			};
 			name = Release;
@@ -1611,6 +1630,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1628,6 +1648,7 @@
 					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
 					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
 					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 				);
 			};
 			name = Debug;
@@ -1663,6 +1684,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1680,6 +1702,7 @@
 					"$(SRCROOT)\..\node_modules\appcenter\ios\AppCenterReactNative",
 					"$(SRCROOT)\..\node_modules\appcenter-crashes\ios\AppCenterReactNativeCrashes",
 					"$(SRCROOT)\..\node_modules\appcenter-analytics\ios\AppCenterReactNativeAnalytics",
+					"$(SRCROOT)\..\node_modules\react-native-code-push\ios\CodePush/**",
 				);
 			};
 			name = Release;

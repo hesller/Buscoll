@@ -20,12 +20,15 @@ import NavigationService from './src/components/utilities/NavigationServices';
 import type { Notification, NotificationOpen, RemoteMessage } from 'react-native-firebase';
 import bgMessaging from './src/components/functions/bgMessaging';
 import OneSignal from 'react-native-onesignal';
+import codePush from 'react-native-code-push';
 
 
 FCM = firebase.messaging();
 ref = firebase.firestore().collection("users");
 
-export default class Buscou extends Component {
+let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
+
+class Buscou extends Component {
   constructor(props) {
     super(props);
 
@@ -207,6 +210,8 @@ export default class Buscou extends Component {
     );
   }
 }
+
+Buscoll = codePush(codePushOptions)(Buscou);
 
 AppRegistry.registerComponent('Buscou', () => createBottomTabNavigator);
 
