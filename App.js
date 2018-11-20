@@ -211,7 +211,9 @@ class Buscou extends Component {
   }
 }
 
-Buscoll = codePush(codePushOptions)(Buscou);
+Buscou = codePush(codePushOptions)(Buscou);
+
+export default Buscou;
 
 AppRegistry.registerComponent('Buscou', () => createBottomTabNavigator);
 
