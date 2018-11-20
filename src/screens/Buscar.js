@@ -6,13 +6,10 @@ import {
   Easing, Image, YellowBox, Button, 
   TouchableHighlight, Linking
 } from 'react-native';
-import { SearchBar } from 'react-native-elements';
 import { connect } from 'react-redux';
 import _ from 'lodash'
-import SplashScreen from 'react-native-splash-screen';
 import Spinner from 'react-native-loading-spinner-overlay';
 import firebase from 'react-native-firebase';
-import { withNavigation } from 'react-navigation';
 import SearchInput, { createFilter } from 'react-native-search-filter';
 //console.disableYellowBox = true
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated'])
@@ -22,9 +19,7 @@ import ListaCategorias from '../components/categorias/Categorias';
 // importando componente Categorias & Listagens
 import Listagem02 from '../components/buscar/Listagem02'
 import Listagem from '../components/buscar/Listagem';
-import Pesquisa from '../components/buscar/Pesquisa';
 import TituloCategoria from '../components/buscar/TituloCategoria';
-import Slider from '../components/utilities/Slider';
 import CarouselSnap from '../components/utilities/CarouselSnap';
 
 //importando estilos
@@ -33,8 +28,11 @@ import colors from '../colors/index';
 
 // importando arquivos relacionados ao redux
 import { ActionCreators } from '../redux/actions';
-import { store } from '../redux/store'
-import NavigationServices from '../components/utilities/NavigationServices';
+
+// importando appcenter features 
+import Crashes from 'appcenter-crashes';
+import Analytics from 'appcenter-analytics';
+import Appcenter from 'appcenter';
 
 const KEYS_TO_FILTERS = ['nome', 'keywords','bairro']
 const SIZE = 100;
@@ -61,6 +59,14 @@ class Buscar extends React.PureComponent {
       isSearching: false,
       bigFuckingArray: [],
     })
+  }
+
+  nativeCrash() {
+    Crashes.generateTestCrash();
+  }
+
+  jsCrash() {
+    throw new Error('this is a javascript crash!');
   }
 
   componentWillMount() {
@@ -292,6 +298,37 @@ class Buscar extends React.PureComponent {
                   <Text 
                     style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
                   >ANUNCIE SUA EMPRESA, CLIQUE AQUI!</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight 
+                  style={{ marginHorizontal: 20, marginTop: 40, paddingVertical: 10, backgroundColor: "#841584" }}
+                  onPress={() => {this.jsCrash();}}
+                >
+                  <Text 
+                    style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
+                  >JS Crash!</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight 
+                  style={{ marginHorizontal: 20, marginTop: 40, paddingVertical: 10, backgroundColor: "#841584" }}
+                  onPress={() => {this.nativeCrash();}}
+                >
+                  <Text 
+                    style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
+                  >Native crash!</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight 
+                  style={{ marginHorizontal: 20, marginTop: 40, paddingVertical: 10, backgroundColor: "#841584" }}
+                  onPress={() => {Analytics.trackEvent('cliquei no botão', { 
+                    tipo: 'touchable highlight',
+                    motivo: 'fazer um teste'
+                  })
+                }}
+                >
+                  <Text 
+                    style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
+                  >trackevent</Text>
                 </TouchableHighlight>
               </View>
 

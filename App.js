@@ -60,6 +60,9 @@ export default class Buscou extends Component {
     OneSignal.addEventListener('received', this.onReceived);
     OneSignal.addEventListener('opened', this.onOpened);
     OneSignal.addEventListener('ids', this.onIds);
+
+    AppCenter.start(getApplication(), "{3bd75f7c-e97b-469d-8240-ed9bf3e710bd}", 
+      Analytics.class, Crashes.class, Distribute.class);
   }
 
 

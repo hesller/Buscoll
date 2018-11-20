@@ -161,8 +161,13 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-onesignal')
-    compile project(':react-native-geocoder')
+    def appCenterSdkVersion = '1.10.0'
+    implementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
+    implementation project(':appcenter-analytics')
+    implementation project(':appcenter-crashes')
+    implementation project(':appcenter')
+    implementation project(':react-native-onesignal')
+    implementation project(':react-native-geocoder')
     implementation project(':react-native-photo-view')
     implementation project(':react-native-fetch-blob')
     implementation project(':react-native-splash-screen')
