@@ -151,7 +151,8 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-code-push')
+    compile project(':appcenter')
+    implementation project(':react-native-code-push')
     def appCenterSdkVersion = '1.10.0'
     implementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
     implementation project(':appcenter-analytics')
