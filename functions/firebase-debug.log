@@ -1,0 +1,99 @@
+[debug] [2018-09-28T16:24:31.301Z] ----------------------------------------------------------------------
+[debug] [2018-09-28T16:24:31.304Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Hesller\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy --only functions
+[debug] [2018-09-28T16:24:31.304Z] CLI Version:   4.2.1
+[debug] [2018-09-28T16:24:31.304Z] Platform:      win32
+[debug] [2018-09-28T16:24:31.304Z] Node Version:  v10.7.0
+[debug] [2018-09-28T16:24:31.313Z] Time:          Fri Sep 28 2018 13:24:31 GMT-0300 (GMT-03:00)
+[debug] [2018-09-28T16:24:31.313Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-09-28T16:24:31.326Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-09-28T16:24:31.327Z] > authorizing via signed-in user
+[debug] [2018-09-28T16:24:31.329Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-09-28T16:24:31.329Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-09-28T16:24:32.044Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:24:32.052Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/testingfirebase-65604  
+ 
+[debug] [2018-09-28T16:24:33.495Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'testingfirebase-65604'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script.
+[debug] [2018-09-28T16:24:38.718Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-09-28T16:24:38.720Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/testingfirebase-65604?view=CONSUMER_VIEW  
+ 
+[debug] [2018-09-28T16:24:38.720Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/testingfirebase-65604?view=CONSUMER_VIEW  
+ 
+[debug] [2018-09-28T16:24:41.304Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:24:41.465Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2018-09-28T16:24:41.467Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/testingfirebase-65604  
+ 
+[debug] [2018-09-28T16:24:43.600Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:24:43.601Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/911071146048:getServerAppConfig  
+ 
+[debug] [2018-09-28T16:24:44.421Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-09-28T16:24:44.424Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/testingfirebase-65604/configs  
+ 
+[debug] [2018-09-28T16:24:46.583Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (52.62 KB) for uploading
+[debug] [2018-09-28T16:24:47.106Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/testingfirebase-65604/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2018-09-28T16:24:48.280Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:24:48.281Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-20a5a4f8-e717-4e17-a251-dc70a803d5a2/781d8862-dcf4-49b7-a775-3a5da0278265.zip?GoogleAccessId=service-911071146048@gcf-admin-robot.iam.gserviceaccount.com&Expires=1538153687&Signature=RpHBpIoQMAzvMj6flDpkDTirtQRG8q9k%2BkhKO9CA2rk5vZuyzmScm2eSdtN0iXS5%2B7dBmi6eSz4I6y66kEL2bSBwK1phUOeMI8Iu837G7YN5Q%2Bm7AgqO56fAcRN1ufp%2FeHEaLCzSsIGhHQqi7q%2FmaFt1%2B9NXxqobFmey0K29W0ZdCkVzu4oz%2BMOliHLn92VKfoFGHm7qVxJZWW1kXY4OY813LUhwtLJirnLE%2BxfRUOWB6QNOp63eqGNJlT0%2FldN3mMi2g0sKqv7I8W7ie2P5S73nnHX9027sxUea5n3s2ciEtd%2FBzo10pqJ4Uo6B6EQ%2FfZfQ0BfMgfqZwIPBv06bzQ%3D%3D  
+
+[debug] [2018-09-28T16:24:49.806Z] <<< HTTP RESPONSE 200
+[info] +  functions: functions folder uploaded successfully
+[debug] [2018-09-28T16:24:49.808Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/testingfirebase-65604/locations/-/functions  
+ 
+[debug] [2018-09-28T16:24:50.755Z] <<< HTTP RESPONSE 200
+[info] i  functions: updating Node.js 6 function notifyNewMessage(us-central1)...
+[debug] [2018-09-28T16:24:50.759Z] Trigger is:  {"eventTrigger":{"resource":"projects/testingfirebase-65604/databases/(default)/documents/users/{userId}/contatos/{contactId}/ultimaMensagem/lastMsg","eventType":"providers/cloud.firestore/eventTypes/document.write","service":"firestore.googleapis.com"}}
+[debug] [2018-09-28T16:24:50.760Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/testingfirebase-65604/locations/us-central1/functions/notifyNewMessage 
+query params: {"updateMask":"sourceUploadUrl,name,labels,eventTrigger.resource,eventTrigger.eventType,eventTrigger.service"} 
+
+[debug] [2018-09-28T16:24:51.710Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:24:51.720Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dGVzdGluZ2ZpcmViYXNlLTY1NjA0L3VzLWNlbnRyYWwxL25vdGlmeU5ld01lc3NhZ2UvQXdPbU00amhxT2c  
+ 
+[debug] [2018-09-28T16:24:52.519Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:24:54.522Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dGVzdGluZ2ZpcmViYXNlLTY1NjA0L3VzLWNlbnRyYWwxL25vdGlmeU5ld01lc3NhZ2UvQXdPbU00amhxT2c  
+ 
+[debug] [2018-09-28T16:24:55.284Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:24:57.285Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dGVzdGluZ2ZpcmViYXNlLTY1NjA0L3VzLWNlbnRyYWwxL25vdGlmeU5ld01lc3NhZ2UvQXdPbU00amhxT2c  
+ 
+[debug] [2018-09-28T16:24:58.062Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:25:00.063Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dGVzdGluZ2ZpcmViYXNlLTY1NjA0L3VzLWNlbnRyYWwxL25vdGlmeU5ld01lc3NhZ2UvQXdPbU00amhxT2c  
+ 
+[debug] [2018-09-28T16:25:00.829Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:25:02.836Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dGVzdGluZ2ZpcmViYXNlLTY1NjA0L3VzLWNlbnRyYWwxL25vdGlmeU5ld01lc3NhZ2UvQXdPbU00amhxT2c  
+ 
+[debug] [2018-09-28T16:25:03.623Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:25:05.628Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dGVzdGluZ2ZpcmViYXNlLTY1NjA0L3VzLWNlbnRyYWwxL25vdGlmeU5ld01lc3NhZ2UvQXdPbU00amhxT2c  
+ 
+[debug] [2018-09-28T16:25:06.198Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-28T16:25:08.214Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/dGVzdGluZ2ZpcmViYXNlLTY1NjA0L3VzLWNlbnRyYWwxL25vdGlmeU5ld01lc3NhZ2UvQXdPbU00amhxT2c  
+ 
