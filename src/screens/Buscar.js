@@ -302,7 +302,7 @@ class Buscar extends React.PureComponent {
 
                 <TouchableHighlight 
                   style={{ marginHorizontal: 20, marginTop: 40, paddingVertical: 10, backgroundColor: "#841584" }}
-                  onPress={() => {this.jsCrash();}}
+                  onPress={() => { return this.jsCrash();}}
                 >
                   <Text 
                     style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
@@ -311,7 +311,7 @@ class Buscar extends React.PureComponent {
 
                 <TouchableHighlight 
                   style={{ marginHorizontal: 20, marginTop: 40, paddingVertical: 10, backgroundColor: "#841584" }}
-                  onPress={() => {this.nativeCrash();}}
+                  onPress={() => { return this.nativeCrash();}}
                 >
                   <Text 
                     style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
@@ -320,10 +320,12 @@ class Buscar extends React.PureComponent {
 
                 <TouchableHighlight 
                   style={{ marginHorizontal: 20, marginTop: 40, paddingVertical: 10, backgroundColor: "#841584" }}
-                  onPress={() => {Analytics.trackEvent('cliquei no botão', { 
+                  onPress={() => {
+                    alert('track event pressed!');
+                    return Analytics.trackEvent('cliquei no botão', { 
                     tipo: 'touchable highlight',
                     motivo: 'fazer um teste'
-                  })
+                  });
                 }}
                 >
                   <Text 
