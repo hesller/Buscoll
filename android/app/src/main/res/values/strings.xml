@@ -3,4 +3,5 @@
     <string name="default_notification_channel_id">Serviço de Mensagem</string>
     <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true">ALWAYS_SEND</string>
     <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true">ALWAYS_SEND</string>
+    <string name="reactNativeCodePush_androidDeploymentKey" moduleConfig="true">6r0VKTSNZONHEc5C2SYVk2VDtJ5oryGCeiWC7</string>
 </resources>

@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Platform,
-  Image,
-  Text,
-  View,
-  ScrollView,
   AppRegistry,
   StatusBar
 } from 'react-native';
@@ -21,7 +15,7 @@ import type { Notification, NotificationOpen, RemoteMessage } from 'react-native
 import bgMessaging from './src/components/functions/bgMessaging';
 import OneSignal from 'react-native-onesignal';
 import codePush from 'react-native-code-push';
-
+import AppCenter from 'appcenter';
 
 FCM = firebase.messaging();
 ref = firebase.firestore().collection("users");
@@ -64,8 +58,8 @@ class Buscou extends Component {
     OneSignal.addEventListener('opened', this.onOpened);
     OneSignal.addEventListener('ids', this.onIds);
 
-    AppCenter.start(getApplication(), "{3bd75f7c-e97b-469d-8240-ed9bf3e710bd}", 
-      Analytics.class, Crashes.class, Distribute.class);
+    /*AppCenter.start(getApplication(), "{3bd75f7c-e97b-469d-8240-ed9bf3e710bd}", 
+      Analytics.class, Crashes.class, Distribute.class);*/
   }
 
 
@@ -211,7 +205,9 @@ class Buscou extends Component {
   }
 }
 
-Buscoll = codePush(codePushOptions)(Buscou);
+Buscou = codePush(codePushOptions)(Buscou);
+
+export default Buscou;
 
 AppRegistry.registerComponent('Buscou', () => createBottomTabNavigator);
 
