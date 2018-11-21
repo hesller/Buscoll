@@ -211,6 +211,13 @@ class Buscar extends React.PureComponent {
     );
   }
 
+  onButtonPress() {
+    codePush.sync({
+        updateDialog: true,
+        installMode: codePush.InstallMode.IMMEDIATE
+    });
+  }
+
   render() {
     
     const filteredAds = this.props.allAds.filter(createFilter(this.state.query, KEYS_TO_FILTERS));
@@ -321,17 +328,23 @@ class Buscar extends React.PureComponent {
                 <TouchableHighlight 
                   style={{ marginHorizontal: 20, marginTop: 40, paddingVertical: 10, backgroundColor: "#841584" }}
                   onPress={() => {
-                    alert('track event pressed!');
-                    return Analytics.trackEvent('cliquei no botão', { 
-                    tipo: 'touchable highlight',
-                    motivo: 'fazer um teste'
-                  });
+                    var enable = await Analytics.isEnabled();
+                    alert(enable);
+                    return Analytics.trackEvent('Video clicked', 
+                      { Category: 'Music', FileName: 'favorite.avi' });
+
                 }}
                 >
                   <Text 
                     style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
                   >trackevent</Text>
                 </TouchableHighlight>
+
+                <TouchableOpacity 
+                  style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
+                  onPress={this.onButtonPress}>
+                    <Text>Check for updates</Text>
+                </TouchableOpacity>
               </View>
 
               <View style={{ flex: 1, marginTop: 20, marginHorizontal: 20 }} >

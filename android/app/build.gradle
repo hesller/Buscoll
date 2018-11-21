@@ -151,22 +151,17 @@ android {
 }
 
 dependencies {
-    compile project(':appcenter-analytics')
     compile project(':appcenter-crashes')
+    compile project(':appcenter-analytics')
     compile project(':appcenter')
     implementation project(':react-native-code-push')
-    def appCenterSdkVersion = '1.10.0'
-    implementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
-    implementation project(':appcenter-analytics')
-    implementation project(':appcenter-crashes')
-    implementation project(':appcenter')
     implementation project(':react-native-onesignal')
     implementation project(':react-native-geocoder')
     implementation project(':react-native-photo-view')
     implementation project(':react-native-fetch-blob')
     implementation project(':react-native-splash-screen')
     implementation project(':react-native-image-crop-picker')
-    compile 'com.android.support:multidex:1.0.2'
+    implementation 'com.android.support:multidex:1.0.3'
     implementation(project(':react-native-firebase')) {
         transitive = false
     }
@@ -174,7 +169,7 @@ dependencies {
     implementation project(':react-native-linear-gradient')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation "com.facebook.react:react-native:0.57.0"  // From node_modules
     implementation project(':react-native-linear-gradient')
     implementation (project(':react-native-maps')){
        exclude group: 'com.google.android.gms', module: 'play-services-base'
@@ -182,7 +177,7 @@ dependencies {
     }
     implementation "com.google.android.gms:play-services-base:16.0.1"
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
-    implementation "com.google.android.gms:play-services-maps:+"
+    implementation "com.google.android.gms:play-services-maps:16.0.0"
     // Firebase dependencies
     
     implementation "com.google.firebase:firebase-ads:15.0.1"
