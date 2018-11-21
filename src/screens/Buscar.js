@@ -33,6 +33,7 @@ import { ActionCreators } from '../redux/actions';
 import Crashes from 'appcenter-crashes';
 import Analytics from 'appcenter-analytics';
 import Appcenter from 'appcenter';
+import codePush from 'react-native-code-push';
 
 const KEYS_TO_FILTERS = ['nome', 'keywords','bairro']
 const SIZE = 100;
@@ -59,14 +60,6 @@ class Buscar extends React.PureComponent {
       isSearching: false,
       bigFuckingArray: [],
     })
-  }
-
-  nativeCrash() {
-    Crashes.generateTestCrash();
-  }
-
-  jsCrash() {
-    throw new Error('this is a javascript crash!');
   }
 
   componentWillMount() {
@@ -211,13 +204,6 @@ class Buscar extends React.PureComponent {
     );
   }
 
-  onButtonPress() {
-    codePush.sync({
-        updateDialog: true,
-        installMode: codePush.InstallMode.IMMEDIATE
-    });
-  }
-
   render() {
     
     const filteredAds = this.props.allAds.filter(createFilter(this.state.query, KEYS_TO_FILTERS));
@@ -306,45 +292,6 @@ class Buscar extends React.PureComponent {
                     style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
                   >ANUNCIE SUA EMPRESA, CLIQUE AQUI!</Text>
                 </TouchableHighlight>
-
-                <TouchableHighlight 
-                  style={{ marginHorizontal: 20, marginTop: 40, paddingVertical: 10, backgroundColor: "#841584" }}
-                  onPress={() => { return this.jsCrash();}}
-                >
-                  <Text 
-                    style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
-                  >JS Crash!</Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight 
-                  style={{ marginHorizontal: 20, marginTop: 40, paddingVertical: 10, backgroundColor: "#841584" }}
-                  onPress={() => { return this.nativeCrash();}}
-                >
-                  <Text 
-                    style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
-                  >Native crash!</Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight 
-                  style={{ marginHorizontal: 20, marginTop: 40, paddingVertical: 10, backgroundColor: "#841584" }}
-                  onPress={() => {
-                    var enable = await Analytics.isEnabled();
-                    alert(enable);
-                    return Analytics.trackEvent('Video clicked', 
-                      { Category: 'Music', FileName: 'favorite.avi' });
-
-                }}
-                >
-                  <Text 
-                    style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
-                  >trackevent</Text>
-                </TouchableHighlight>
-
-                <TouchableOpacity 
-                  style={{ fontSize: 15, fontWeight: '600', alignSelf: 'center', color: 'white'}} 
-                  onPress={this.onButtonPress}>
-                    <Text>Check for updates</Text>
-                </TouchableOpacity>
               </View>
 
               <View style={{ flex: 1, marginTop: 20, marginHorizontal: 20 }} >
