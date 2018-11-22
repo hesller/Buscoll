@@ -204,6 +204,48 @@ class Buscar extends React.PureComponent {
     );
   }
 
+  renderCardsOfMainList(dados) {
+    console.log(dados);
+    if (dados != null) {
+      if (dados.destaque == true) {
+        return (
+          <Listagem
+            key={dados.telefone}
+            imageUri={{ uri: dados.imagemCapa[0] }}
+            restTitulo={dados.nome}
+            restDescricao={dados.keywords}
+            telefone={dados.telefone}
+            onPress={this.sendToDetailsScreen(dados)}
+          />
+        );
+      }
+    }
+  }
+
+  renderMainAdsList(loading, ads) {
+    var categorias = [];
+    Object.keys(ads).forEach((key, index) => {
+      categorias.push(key);
+    });
+    
+    return categorias.map((item01, index) => {
+      console.log(ads[item01]);
+      if (ads[item01].length > 0) {
+        return (
+          <View style={{ flex: 1, marginTop: 20, marginHorizontal: 20 }} >
+            <TituloCategoria titulo={String(item01)} />
+            <FlatList
+              initialNumToRender={3}
+              keyExtractor={this._keyExtractor}
+              data={ads[item01]}
+              renderItem={({ item }) => this.renderCardsOfMainList(item)}
+            />
+          </View>
+        );
+      }
+    });
+  }
+
   render() {
     
     const filteredAds = this.props.allAds.filter(createFilter(this.state.query, KEYS_TO_FILTERS));
@@ -293,37 +335,9 @@ class Buscar extends React.PureComponent {
                   >ANUNCIE SUA EMPRESA, CLIQUE AQUI!</Text>
                 </TouchableHighlight>
               </View>
-
-              <View style={{ flex: 1, marginTop: 20, marginHorizontal: 20 }} >
-                <TituloCategoria titulo='Comidas & Bebidas' />
-                {!this.props.loadingAds ?
-                  //<CarouselSnap autoplay={false} title={'Comidas & Bebidas'} />
-                  <FlatList
-                    initialNumToRender={3}
-                    keyExtractor={this._keyExtractor}
-                    data={this.props.adsFetched['Comidas & Bebidas']}
-                    renderItem={({ item }) => this.renderCard(item)}
-                  />
-                  :
-                  <View style={{ width: SCREEN_WIDTH * 0.85, height: 200 }} >
-                    <Text style={{ paddingTop: 30, margin: 20, alignSelf: 'center' }} >CARREGANDO DADOS...</Text>
-                    <Text style={{ alignSelf: 'center' }} >caso demore muito,</Text>
-                    <Text style={{ alignSelf: 'center' }} >Por favor verifique sua conexao com a internet</Text>
-                    <ActivityIndicator size="large" color={colors.tabIconSelected} />
-                  </View>
-                }
-              </View>
-
-              <View style={{ flex: 1, marginTop: 20, marginHorizontal: 20 }} >
-                <TituloCategoria titulo='Utilidades em Geral' />
-
+              <View>
                 {this.props.loadingAds == false ?
-                  <FlatList
-                    initialNumToRender={3}
-                    keyExtractor={this._keyExtractor}
-                    data={this.props.adsFetched['Utilidades em Geral']}
-                    renderItem={({ item }) => this.renderCardUtilidades(item)}
-                  />
+                  this.renderMainAdsList(this.props.loadingAds, this.props.adsFetched)
                   :
                   <View style={{ width: SCREEN_WIDTH * 0.85, height: 200 }} >
                     <Text style={{ paddingTop: 30, margin: 20, alignSelf: 'center' }} >CARREGANDO DADOS...</Text>
