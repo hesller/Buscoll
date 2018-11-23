@@ -272,7 +272,7 @@ class CategoriasNavigator extends Component {
 
 export default createBottomTabNavigator({
   BuscouStack,
-  CategoriasStack,
+  CategoriasStack
 }, {
   navigationOptions: {
     tabBarLabel: 'Categorias',
